@@ -1,123 +1,166 @@
-/* style.css */
+/* =========================================
+   VARIÁVEIS DE CORES E ESTILOS
+   ========================================= */
+:root {
+    --primary-color: #2563eb;    /* Azul Moderno */
+    --secondary-color: #f59e0b;  /* Amarelo/Laranja para destaque */
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
 
-/* 1. Reset Global - Garante que o navegador não aplique estilos padrão */
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background-color: #f0f2f5;
-    color: #1a1a1b;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
 }
 
-/* 2. Cabeçalho e Navegação */
+/* =========================================
+   HEADER E NAVEGAÇÃO
+   ========================================= */
 header {
-    background-color: #004a8d; /* Azul Escolar */
-    padding: 20px 0;
-    color: white;
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     max-width: 1100px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .logo {
+    color: var(--white);
     font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-}
-
-nav ul li {
-    margin-left: 25px;
+    list-style: none;
+    gap: 2rem;
 }
 
 nav ul li a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
     font-weight: 500;
-    transition: 0.3s;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
 }
 
 nav ul li a:hover {
-    color: #ffcc00; /* Destaque ao passar o mouse */
+    opacity: 0.8;
 }
 
-/* 3. Seções Principais */
+/* =========================================
+   CONTEÚDO PRINCIPAL (MAIN)
+   ========================================= */
 main {
     max-width: 1100px;
-    margin: 40px auto;
+    margin: 2rem auto;
     padding: 0 20px;
 }
 
 section {
-    margin-bottom: 50px;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background: var(--bg-card);
+    margin-bottom: 2.5rem;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
 }
 
 h2 {
-    color: #004a8d;
-    margin-bottom: 20px;
-    border-left: 5px solid #ffcc00;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-left: 6px solid var(--secondary-color);
     padding-left: 15px;
 }
 
-/* 4. Tabela de Aulas Semanais */
+/* =========================================
+   TABELA DE AULAS
+   ========================================= */
+.table-container {
+    overflow-x: auto; /* Garante que a tabela não quebre em celulares */
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
+    padding: 1rem;
     text-align: left;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 th {
-    background-color: #f8f9fa;
-    color: #004a8d;
+    background-color: #f1f5f9;
+    font-weight: 600;
 }
 
-/* 5. Grid de Professores e Projetos */
-.grid-container {
+/* =========================================
+   GRID DE PROFESSORES E CARDS
+   ========================================= */
+.grid-professores {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
 .card {
-    border: 1px solid #eee;
-    padding: 20px;
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
     border-radius: 8px;
-    transition: transform 0.2s;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.02);
-    border-color: #004a8d;
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
 }
 
-/* 6. Rodapé */
+.card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
 footer {
     text-align: center;
-    padding: 30px;
-    background: #333;
-    color: white;
-    font-size: 0.9rem;
+    padding: 3rem 1rem;
+    background-color: #0f172a;
+    color: var(--white);
+    margin-top: 4rem;
 }
